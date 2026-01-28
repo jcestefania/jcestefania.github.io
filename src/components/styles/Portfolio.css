@@ -1,126 +1,126 @@
-#portfolio {
-    background: #fff;
-    margin: 20px auto;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    max-width: 900px;
+/* Portfolio.css - Horizontal Cards */
+.portfolio {
+  margin-bottom: 4rem;
+  scroll-margin-top: 100px; /* Offset for sticky header */
 }
 
-/* Caja de Perfil de GitHub */
-.github-profile {
-    display: flex;
-    flex-direction: column; /* Alinea los elementos en columna */
-    justify-content: center; /* Centra verticalmente */
-    align-items: center; /* Centra horizontalmente */
-    width: fit-content; /* Ajusta al contenido */
-    max-width: 850px; /* Limita el ancho máximo */
-    margin: 30px auto; /* Centra la caja horizontalmente */
-    padding: 40px; /* Espaciado interno */
-    background: #f9f9f9; /* Fondo claro */
-    border: 1px solid #ddd; /* Borde gris claro */
-    border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra inicial */
-    text-align: center; /* Alinea el texto en el centro */
-    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Suaviza el efecto */
-    transform: perspective(400px); /* Perspectiva 3D */
+.portfolio h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
 }
 
-.github-profile:hover {
-    transform: translateY(-5px); /* Eleva la caja 5px */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+.portfolio-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-.github-profile h3 {
-    margin: 0 0 20px;
-    font-size: 1.4rem;
-    color: #333;
+.project-card {
+  display: flex;
+  flex-direction: column;
+  background-color: transparent; /* Clean bg for card */
+  gap: 1.5rem;
 }
 
-.github-logo {
-    width: 24px; /* Tamaño del logo */
-    height: auto; /* Mantén proporciones */
-    margin-right: 8px; /* Espaciado entre el logo y el texto */
-    vertical-align: middle; /* Alinea verticalmente con el texto */
+@media (min-width: 640px) {
+  .project-card {
+    flex-direction: row;
+    align-items: flex-start;
+  }
 }
 
-.github-profile p {
-    margin: 5px 0;
-    color: #555;
+.project-image {
+  flex: 1;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease;
+  aspect-ratio: 16/9;
+  max-width: 48%;
 }
 
-.github-profile a {
-    color: #0077b5;
-    text-decoration: none;
-    font-weight: bold;
-    margin-top: 20px; /* Separa el enlace del resto del contenido */
-    display: inline-block; /* Asegura que los márgenes funcionen */
+@media (max-width: 640px) {
+  .project-image {
+    max-width: 100%;
+  }
 }
 
-.github-profile a:hover {
-    text-decoration: underline;
+.project-image:hover {
+  transform: scale(1.02);
 }
 
-.username {
-    color: #0077b5; /* Azul estilo GitHub */
-    font-style: italic;
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-/* Proyectos */
-.projects {
-    display: flex;
-    flex-wrap: wrap; /* Permite que los proyectos se ajusten a varias líneas */
-    gap: 20px;
-    justify-content: center; /* Centra los proyectos */
+.project-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
-.project {
-    flex: 1 1 calc(30% - 20px); /* Ajusta el ancho del proyecto */
-    background: #f9f9f9;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra inicial */
-    text-align: center;
-    margin-bottom: 20px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Añade transición */
+.project-content h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
 }
 
-.project:hover {
-    transform: translateY(-5px); /* Eleva ligeramente el proyecto */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
 }
 
-.project h3 {
-    margin: 10px 0;
-    font-size: 1.2rem;
-    color: #333;
+.tag-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  background-color: var(--tag-bg);
+  color: var(--text-secondary);
+  font-weight: 500;
 }
 
-.project p {
-    margin: 10px 0;
-    color: #555;
+.project-desc {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
 }
 
-.project a {
-    color: #0077b5;
-    text-decoration: none;
-    font-weight: bold;
+.project-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: auto;
 }
 
-.project a:hover {
-    text-decoration: underline;
+.btn-project {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--tag-bg);
+  border: 1px solid transparent;
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
 }
 
-/* Ajuste para pantallas pequeñas */
-@media screen and (max-width: 768px) {
-    .projects {
-        flex-direction: column; /* Cambia a columna para apilar los proyectos */
-        align-items: center; /* Centra los proyectos en la columna */
-    }
-
-    .project {
-        flex: 1 1 100%; /* Ocupa todo el ancho disponible */
-        max-width: 90%; /* Limita el ancho máximo al 90% de la pantalla */
-    }
+.btn-project:hover {
+  background-color: var(--card-hover);
 }

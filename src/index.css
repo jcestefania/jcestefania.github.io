@@ -1,18 +1,90 @@
-body {
-  background: #f4f4f4;
-  font-family: 'Roboto', sans-serif;
-  color: #333;
+:root {
+  /* Minimalist Dark Palette (Porfolio.dev inspired) */
+  --bg-color: #050510; /* Fallback */
+  --text-primary: #f3f4f6;
+  --text-secondary: #d1d5db;
+  --text-muted: #9ca3af;
+
+  --border-color: #1f2937;
+  --card-bg: #0f172a; /* Dark Slate Blueish */
+  --card-hover: #1e293b;
+
+  --accent-yellow: #fbbf24; /* Added yellow accent */
+  --tag-bg: #1e293b;
+
+  /* Typography - Clean Sans */
+  --font-family: "Inter", system-ui, -apple-system, sans-serif;
+
+  /* Spacing */
+  --radius: 8px;
+  --container-width: 700px;
+}
+
+[data-theme="light"] {
+  --bg-color: #ffffff;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
+
+  --border-color: #e5e7eb;
+  --card-bg: #f9fafb;
+  --card-hover: #f3f4f6;
+
+  --tag-bg: #f3f4f6;
+}
+
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-section {
-  margin-bottom: 30px;
+body {
+  background-color: var(--bg-color);
+  /* Radial Gradient for that "Midudev" glow */
+  background-image:
+    radial-gradient(at 50% 0%, rgba(56, 189, 248, 0.1) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(99, 102, 241, 0.1) 0px, transparent 50%);
+  background-attachment: fixed;
+
+  color: var(--text-primary);
+  font-family: var(--font-family);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  padding: 2rem 1rem; /* Global padding */
 }
 
-h2 {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #444;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text-primary);
+  line-height: 1.2;
+  letter-spacing: -0.025em; /* Tight tracking for headings */
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Global Container Utility */
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  width: 100%;
+}
+
+@media (max-width: 640px) {
+  body {
+    padding: 1rem;
+  }
 }

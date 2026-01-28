@@ -1,131 +1,133 @@
-import React, { useEffect, useState, useRef } from "react";
-import $ from "jquery"; // Importa jQuery instalado desde npm
+import React from "react";
 import "./styles/Portfolio.css";
 
+const GithubIcon = () => (
+  <svg
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+  </svg>
+);
+const ExternalLinkIcon = () => (
+  <svg
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+    <polyline points="15 3 21 3 21 9"></polyline>
+    <line x1="10" y1="14" x2="21" y2="3"></line>
+  </svg>
+);
+const CodeIcon = () => (
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <polyline points="16 18 22 12 16 6"></polyline>
+    <polyline points="8 6 2 12 8 18"></polyline>
+  </svg>
+);
+
+const projects = [
+  {
+    title: "Pressure Sensor Seat - IoT Monitor",
+    description:
+      "Sistema de monitorización inteligente con IoT. Trabajo de Fin de Grado (Matrícula de Honor 9.6/10). Hardware y software para análisis postural en tiempo real.",
+    tags: [
+      { name: "IoT", color: "green" },
+      { name: "C/C++", color: "blue" },
+      { name: "Arduino", color: "white" },
+    ],
+    // Correct filename: tfg.png, using PUBLIC_URL
+    image: process.env.PUBLIC_URL + "/projects_images/tfg.png",
+    repo: "https://github.com/jcestefania/pressure-sensor-seat",
+  },
+  {
+    title: "NLP Chef Chatbot",
+    description:
+      "Asistente culinario inteligente basado en Procesamiento de Lenguaje Natural. Recomienda recetas y resuelve dudas gastronómicas usando modelos de IA.",
+    tags: [
+      { name: "Python", color: "yellow" },
+      { name: "NLP", color: "purple" },
+      { name: "Machine Learning", color: "blue" },
+    ],
+    // Correct filename: chatbot.png, using PUBLIC_URL
+    image: process.env.PUBLIC_URL + "/projects_images/chatbot.png",
+    repo: "https://github.com/jcestefania/NLP_ChatBot",
+  },
+];
+
 function Portfolio() {
-  const [githubData, setGithubData] = useState(null);
-  const githubRef = useRef(null); // Referencia para el efecto de rotación
-
-  useEffect(() => {
-    const username = "jcestefania";
-    const url = `https://api.github.com/users/${username}`;
-
-    // Llamada AJAX con jQuery
-    $.ajax({
-      url: url,
-      method: "GET",
-      success: function (data) {
-        setGithubData(data); // Actualiza el estado de React
-      },
-      error: function () {
-        console.error("No se pudo obtener la información del perfil de GitHub.");
-      },
-    });
-  }, []);
-
-  // Maneja el movimiento del cursor
-  const handleMouseMove = (event) => {
-    const rect = githubRef.current.getBoundingClientRect();
-    const x = event.clientX - rect.left; // Posición del cursor dentro de la caja (X)
-    const y = event.clientY - rect.top; // Posición del cursor dentro de la caja (Y)
-
-    const centerX = rect.width / 2; // Centro horizontal de la caja
-    const centerY = rect.height / 2; // Centro vertical de la caja
-
-    const rotateX = ((y - centerY) / centerY) * 10; // Rotación eje X
-    const rotateY = ((x - centerX) / centerX) * -10; // Rotación eje Y (negativo para invertir)
-
-    githubRef.current.style.transform = `perspective(400px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-  };
-
-  // Restaura la posición al salir de la caja
-  const handleMouseLeave = () => {
-    githubRef.current.style.transform = "perspective(400px) rotateX(0deg) rotateY(0deg)";
-  };
-
   return (
-    <section id="portfolio">
-      <h2>🚀 Portfolio</h2>
+    <section id="portfolio" className="portfolio">
+      <h2>
+        <CodeIcon />
+        Proyectos
+      </h2>
+      <div className="portfolio-grid">
+        {projects.map((project, index) => (
+          <article key={index} className="project-card">
+            <div className="project-image">
+              {/* Fallback to placeholder if image fails to load (optional, handled by browser's broken icon usually) */}
+              <img
+                src={project.image}
+                alt={project.title}
+                loading="lazy"
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src =
+                    "https://via.placeholder.com/600x338/1e293b/ffffff?text=Image+Not+Found";
+                }}
+              />
+            </div>
 
-      {/* Perfil de GitHub */}
-      {githubData ? (
-        <div
-          className="github-profile"
-          ref={githubRef}
-          onMouseMove={handleMouseMove}
-          onMouseLeave={handleMouseLeave}
-        >
-          <h3>
-            <img
-              src={require("../assets/img/github.png")}
-              alt="Logo de GitHub"
-              className="github-logo"
-            />
-            Perfil de GitHub
-          </h3>
-          <p>Nombre: {githubData.name}</p>
-          <p>Nombre de usuario: <span className="username">@{githubData.login}</span></p>
-          <p>Repositorios públicos: {githubData.public_repos}</p>
-          <p>
-            <a
-              href={githubData.html_url}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Ver perfil en GitHub
-            </a>
-          </p>
-        </div>
-      ) : (
-        <p>Cargando datos de GitHub...</p>
-      )}
+            <div className="project-content">
+              <h3>{project.title}</h3>
 
-      {/* Proyectos */}
-      <div className="projects">
-        <div className="project">
-          <h3>Spotify Song Recommender</h3>
-          <p>
-          SpotifySongRecommender is a C++ project for analyzing and recommending songs. It includes features 
-          like recommending songs and artists based on musical genres, and generating popularity rankings by 
-          artist or genre.
-          </p>
-          <a
-            href="https://github.com/jcestefania/SpotifySongRecommender"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Ver proyecto
-          </a>
-        </div>
-        <div className="project">
-          <h3>Pathfinding Algorithm</h3>
-          <p>This Python project implements the A* algorithm to find the optimal path in a randomly generated 2D 
-            matrix with obstacles. It allows users to choose between Manhattan and Euclidean distances for the 
-            pathfinding process. The matrix, along with the calculated path, is displayed on the console.
-          </p>
-          <a
-            href="https://github.com/jcestefania/Pathfinding-Algorithm-using-A-Star-in-a-2D-Matrix"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Ver proyecto
-          </a>
-        </div>
-        <div className="project">
-          <h3>Machine Learning client project</h3>
-          <p>
-          Data analysis for a client using machine learning. The project includes data preprocessing, 
-          feature selection, model training, hyperparameter tuning, and evaluation using metrics relevant to the 
-          client's business goals.
-          </p>
-          <a
-            href="https://github.com/jcestefania/machine-learning-client-project"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Ver proyecto
-          </a>
-        </div>
+              <div className="project-tags">
+                {project.tags.map((tag, idx) => (
+                  <span key={idx} className="tag-pill">
+                    {tag.name}
+                  </span>
+                ))}
+              </div>
+
+              <p className="project-desc">{project.description}</p>
+
+              <div className="project-links">
+                <a
+                  href={project.repo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-project"
+                >
+                  <GithubIcon />
+                  Code
+                </a>
+                {/* Preview button removed as requested */}
+              </div>
+            </div>
+          </article>
+        ))}
       </div>
     </section>
   );
