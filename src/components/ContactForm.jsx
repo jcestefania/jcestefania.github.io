@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import emailjs from "@emailjs/browser"; // Importación correcta
 import "./styles/ContactForm.css";
 
 function ContactForm() {
@@ -9,12 +10,13 @@ function ContactForm() {
 
     const serviceID = "service_y21rwxb";
     const templateID = "template_5ftku8q";
+    const publicKey = "UpwKRU1UEsDOdpi2w";
 
-    window.emailjs.sendForm(serviceID, templateID, form.current).then(
+    emailjs.sendForm(serviceID, templateID, form.current, publicKey).then(
       (response) => {
         alert("Mensaje enviado correctamente. ¡Gracias por contactarme!");
         console.log("SUCCESS!", response.status, response.text);
-        form.current.reset(); // Limpia el formulario
+        form.current.reset();
       },
       (error) => {
         alert("Error al enviar el mensaje. Intenta nuevamente.");
