@@ -5,7 +5,7 @@ Este es mi portfolio personal desarrollado con **React**, rediseñado con un est
 ## 🚀 Demo en vivo
 
 Puedes ver el sitio en vivo en GitHub Pages:  
-👉 **[https://jcestefania.github.io/mi-marca-personal-react/](https://jcestefania.github.io/mi-marca-personal-react/)**
+👉 **[https://jcestefania.github.io/](https://jcestefania.github.io/)**
 
 ---
 
