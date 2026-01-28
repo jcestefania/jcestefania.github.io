@@ -1,31 +1,31 @@
 # Mi Marca Personal - Juan Carlos Estefanía
 
-Este es mi proyecto de marca personal desarrollado con React, diseñado para mostrar mi experiencia, proyectos y permitir a las personas contactarme fácilmente.
+Este es mi portfolio personal desarrollado con **React**, rediseñado con un estilo minimalista y moderno inspirado en el diseño de producto de alta calidad. Muestra mi experiencia, proyectos destacados y curiosidades sobre mí.
 
 ## 🚀 Demo en vivo
 
-Puedes ver el sitio en vivo en GitHub Pages: [Mi Marca Personal](https://jcestefania.github.io/mi-marca-personal-react/)
+Puedes ver el sitio en vivo en GitHub Pages:  
+👉 **[https://jcestefania.github.io/mi-marca-personal-react/](https://jcestefania.github.io/mi-marca-personal-react/)**
 
 ---
 
-## 📑 Descripción
+## 📑 Características
 
-Este proyecto incluye:
-
-- **Sección Sobre mí:** Información personal y profesional, con enlaces para descargar y ver mi CV.
-- **Portfolio:** Visualización de proyectos destacados con enlaces directos a sus repositorios de GitHub.
-- **Sección Contacto:** Formulario funcional con integración de EmailJS para recibir mensajes.
-- **Footer:** Enlaces a mis perfiles de LinkedIn y GitHub con iconos interactivos.
+- **Diseño Minimalista**: Tema oscuro con acentos de color, tipografía limpia y espaciado generoso.
+- **Modo Oscuro/Claro**: Toggle integrado que guarda la preferencia del usuario.
+- **Animaciones**: Efectos sutiles de hover y badges animados ("Disponible para trabajar").
+- **Sección Hero**: Presentación directa con botones a GitHub, LinkedIn y descarga de CV.
+- **Proyectos**: Tarjetas horizontales con imágenes, etiquetas de tecnologías (pills) y enlaces a código.
+- **Responsive**: Totalmente adaptado a móviles y escritorio.
 
 ---
 
-## 🛠️ Tecnologías utilizadas
+## 🛠️ Tecnologías
 
-- **React**: Librería principal para el desarrollo del proyecto.
-- **CSS**: Estilos personalizados para un diseño minimalista y responsivo.
-- **jQuery (AJAX)**: Para realizar solicitudes asíncronas y manejar la comunicación con el servidor.
-- **EmailJS**: Servicio para el envío de mensajes desde el formulario de contacto.
-- **GitHub Pages**: Para la publicación del proyecto en línea.
+- **React**: Librería principal de UI (Hooks: `useState`, `useEffect`).
+- **CSS3**: Variables CSS personalizadas, Flexbox y Grid sin frameworks pesados.
+- **EmailJS**: Integración para el formulario de contacto sin backend.
+- **GitHub Pages**: Despliegue automático.
 
 ---
 
@@ -34,63 +34,50 @@ Este proyecto incluye:
 ```plaintext
 mi-marca-personal-react/
 ├── public/
-│   ├── index.html        # Punto de entrada HTML
-│   ├── cv/               # Carpeta para el CV
+│   ├── index.html
+│   ├── cv/                 # Curriculums en PDF
 │   │   └── JuanCarlos_Estefania_CV.pdf
-├── src/
-│   ├── components/       # Componentes React
-│   │   ├── About.jsx     # Sección Sobre mí
-│   │   ├── Portfolio.jsx # Sección Portfolio
-│   │   ├── ContactForm.jsx # Sección Contacta conmigo
-│   │   ├── Footer.jsx    # Footer con redes sociales
-│   │   ├── Header.jsx    # Encabezado del sitio
-│   │   
-│   ├── styles/           # Archivos de estilo CSS
-│   │   ├── About.css
-│   │   ├── Portfolio.css
-│   │   ├── ContactForm.css # Estilos para el formulario de contacto
-│   │   ├── Footer.css
-│   │   ├── Header.css    # Estilos para el encabezado
-│   │   
-│   ├── App.jsx           # Punto principal de la aplicación
-│   ├── App.css
-│   ├── index.js
-│   ├── index.css
+│   └── projects_images/    # Imágenes de los proyectos (IoT, Chatbot...)
 │
-└── package.json          # Dependencias y scripts
+├── src/
+│   ├── assets/             # Imágenes estáticas del sitio (Avatar)
+│   ├── components/
+│   │   ├── Header.jsx      # Navegación flotante ("Pill")
+│   │   ├── Hero.jsx        # Intro + Botones + Foto
+│   │   ├── AboutMe.jsx     # Biografía detallada
+│   │   ├── Portfolio.jsx   # Grid de proyectos destacados
+│   │   ├── ContactForm.jsx # Formulario con EmailJS
+│   │   └── Footer.jsx
+│   │
+│   ├── styles/             # Módulos CSS por componente
+│   ├── App.jsx             # Layout principal
+│   ├── index.css           # Variables globales de tema
+│   └── index.js
+│
+└── package.json
 ```
 
 ---
 
-## ⚙️ Instalación y configuración
+## ⚙️ Instalación
 
-Clona el repositorio:
+1. Clona el repositorio:
 
-```bash
-git clone https://github.com/jcestefania/mi-marca-personal-react.git
-cd mi-marca-personal-react
-```
+   ```bash
+   git clone https://github.com/jcestefania/mi-marca-personal-react.git
+   cd mi-marca-personal-react
+   ```
 
-Instala las dependencias:
+2. Instala las dependencias:
 
-```bash
-npm install
-```
+   ```bash
+   npm install
+   ```
 
-Ejecuta el proyecto en local:
-
-```bash
-npm start
-```
-
----
-
-## ✨ Funcionalidades
-
-- **Enlace al CV:** Los botones permiten descargar o visualizar el CV directamente.
-- **Proyectos destacados:** Cada proyecto incluye una breve descripción y un enlace al repositorio.
-- **Formulario de contacto:** Envío de mensajes vía EmailJS.
-- **Enlaces sociales:** Iconos interactivos para acceder a mis perfiles en LinkedIn y GitHub.
+3. Ejecuta en local:
+   ```bash
+   npm start
+   ```
 
 ---
 
