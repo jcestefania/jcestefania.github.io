@@ -52,7 +52,7 @@ function Hero() {
         </a>
       </div>
 
-      <h1>Hola! Soy Juan Carlos</h1>
+      <h1>¡Hola! Soy Juan Carlos</h1>
 
       <p className="hero-intro">
         Graduado en <span className="highlight">Ingeniería Informática</span> y
