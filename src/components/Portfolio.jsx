@@ -42,7 +42,7 @@ const projects = [
       { name: "Robotics / UAV", color: "blue" },
       { name: "GIS / OSM", color: "green" },
     ],
-    image: process.env.PUBLIC_URL + "/projects_images/uav-sar.gif",
+    image: process.env.PUBLIC_URL + "/projects_images/uav-sar.jpg",
     repo: "https://github.com/jcestefania/uav-search-and-rescue",
   },
   {
