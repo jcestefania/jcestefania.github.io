@@ -56,8 +56,7 @@ function Hero() {
 
       <p className="hero-intro">
         Graduado en <span className="highlight">Ingeniería Informática</span> y
-        estudiante de Máster de{" "}
-        <span className="highlight">Inteligencia Artificial Aplicada</span> en
+        Máster en <span className="highlight">Inteligencia Artificial Aplicada</span> por
         la Universidad Carlos III de Madrid.
       </p>
 

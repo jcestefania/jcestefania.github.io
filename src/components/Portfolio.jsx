@@ -15,22 +15,6 @@ const GithubIcon = () => (
     <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
   </svg>
 );
-const ExternalLinkIcon = () => (
-  <svg
-    width="20"
-    height="20"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-    <polyline points="15 3 21 3 21 9"></polyline>
-    <line x1="10" y1="14" x2="21" y2="3"></line>
-  </svg>
-);
 const CodeIcon = () => (
   <svg
     width="24"
@@ -48,6 +32,19 @@ const CodeIcon = () => (
 );
 
 const projects = [
+  {
+    title: "UAV Search & Rescue - Enrutamiento Inteligente",
+    description:
+      "Planificación autónoma de rutas para drones en búsqueda y rescate sobre mapas vectorizados de OpenStreetMap. Combina modelos probabilísticos de dispersión (Koester) y metaheurísticas bioinspiradas (ABC, BHA, ACO) logrando hasta 7x más éxito de detección. Trabajo de Fin de Máster (Sobresaliente 9.6/10).",
+    tags: [
+      { name: "Python", color: "yellow" },
+      { name: "Bio-Inspired AI", color: "purple" },
+      { name: "Robotics / UAV", color: "blue" },
+      { name: "GIS / OSM", color: "green" },
+    ],
+    image: process.env.PUBLIC_URL + "/projects_images/uav-sar.gif",
+    repo: "https://github.com/jcestefania/uav-search-and-rescue",
+  },
   {
     title: "Pressure Sensor Seat - IoT Monitor",
     description:

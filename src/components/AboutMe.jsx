@@ -33,16 +33,22 @@ function AboutMe() {
             <span className="highlight">
               Graduado en Ingeniería Informática
             </span>{" "}
-            por CUNEF Universidad y actualmente estoy cursando un{" "}
+            por CUNEF Universidad y poseo un{" "}
             <span className="highlight">
               Máster en Inteligencia Artificial Aplicada
             </span>{" "}
-            en la Universidad Carlos III de Madrid.
+            por la Universidad Carlos III de Madrid.
           </p>
 
           <p>
-            En cada proyecto intento dar lo mejor de mí; un ejemplo de ello es
-            mi Trabajo de Fin de Grado sobre monitorización inteligente con IoT,
+            En cada proyecto busco la excelencia y el impacto real; un reflejo
+            de ello es mi Trabajo de Fin de Máster en{" "}
+            <span className="highlight">
+              enrutamiento inteligente sobre mapas vectorizados para el despliegue
+              de drones en búsqueda y rescate
+            </span>{" "}
+            (calificación <span className="highlight">9.6/10 - Sobresaliente</span>),
+            así como mi Trabajo de Fin de Grado sobre monitorización inteligente con IoT,
             por el que recibí una{" "}
             <span className="highlight">Matrícula de Honor (9.6/10)</span>.
             Además, durante la carrera obtuve menciones académicas en las
